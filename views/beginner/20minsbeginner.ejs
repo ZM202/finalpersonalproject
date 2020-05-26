@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Learn!</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--The navagation bar begins here-->
+    <h1>Let's Learn!</h1>
+
+    <%- include('../../partials/navbar.ejs') %>
+    <!--The navagation bar ends here--> 
+
+    <!-- Comparison Operator starts here-->
+    <div class = "comparison-add">
+        <input type="button" class="" id="comparison-add" value="Comparison Operators">
+
+        <p class = "emptyComparison"></p>
+        <div id="comparisonResults" style="display: none;">
+            testing1
+    </div>
+    <!-- Comparison Operator ends here-->
+
+    <!--Logical Operator starts here-->
+    <div class = "logical-add">
+        <input type="button" class="" id="logical-add" value="Logical Operators">
+
+        <p class = "emptyLogical"></p>
+        <div id="logicalResults" style="display: none;">
+        <pre>Logical OperatorsDescription	 Comparing 	  Returns </pre>
+                    && AND			((5 < 10) && (5 >3))		True	
+        If you have true && true then you will have result as true       
+        If you have false && false then you will have result as false
+        If you have true &&false then you will have result as true
+        If you have false && true then you will have result as false
+        </div>
+
+            <div class="Logical Operators">
+
+            </div>
+            <div class="Description"></div>
+            <div class="Comparing"></div>
+            <div class="Returns"></div>
+          </div>
+    </div>
+    <!--Logical Operator starts here-->
+
+    <!--Conditional Statement starts here-->
+    <div class = "conditional-add">
+        <input type="button" class="" id="conditional-add" value="Conditional Statements">
+
+        <p class = "emptyConditional"></p>
+        <div id="conditionalResults" style="display: none;">
+        Testing 2</div>
+    </div>
+ 
+    <script src = "/js/beginner/script_begtwentymins.js"></script>   
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Learn!</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--The navagation bar begins here-->
+    <div class="main-content">
+        <h1>Let's Learn!</h1>
+
+        <%- include('../../partials/navbar.ejs') %>
+        <!--The navagation bar ends here-->
+
+        <!-- Syntax's section starts here-->
+        <div class="syntax-add">
+            <!-- <button onclick="mySyntax()">Syntax</button> -->
+            <input type="button" class="" id="syntax-add" value="Syntax">
+
+            <p class="emptySyntax"></p>
+            <div id="syntaxResults" style="display: none;">
+            What is <em><b><mark>Syntax?</em></b></mark>
+            When you think of Syntax, you can think of semicolon at the end each statements.<br>    
+            <pre>For example... let x = 10; </pre> <br>
+            Keep in mind that--Javascript is case sensitive in term of naming function or variables.
+            </div>
+        </div>
+
+        <div class="variables-add">
+            <input type="button" class="" id="variables-add" value="Variables">
+
+            <p class="emptyVariables">
+            <div id="variablesResults" style="display: none;">
+            What is <em><b><mark>Variables?</em></b></mark>
+            In order for the system to do its job, the data needs to be store somewhere.
+            That is when the variables came in. The data can be store in variables.
+            <br>First, you need to declare a variable. You can use <em><b> var, let, or const. </em></b>
+            Most developers will use either <em><b>let</em></b> or <em><b>const</b></em> to declare a variable.
+            <em><b>const</em></b> is the same as <em><b>let</em></b> variable except, it cannot be reassigned.<br>
+            <br>Let's take a look at some examples to how to declare a variables.<br>
+            <pre>let >> variable keyword<br>grocery>> variable name<br>avocado>> variable value<br>let grocery = avocado;</pre>
+            </p>
+            </div>
+
+        <div class="dataTypes-add">
+            <input type="button" class="" id="dataTypes-add" value="Data Types">
+
+            <p class="emptyDataTypes">
+            <div id="dataTypesResults" style="display: none;">
+                What is Data Types and how do we incorporate into coding?
+                Data Types are important since it allow programmers to store different types of data. You can have <em><b><mark>string, boolean,numbers, undefined, null, object, and array data types.</em></b></mark>
+                Let’s tackle on how to write each data types using a variable to store a data.....<br>
+                <br>The <em><b><mark>string</em></b></mark> data type can use either single or double quotes.
+                <br>
+                <pre>let grocery = “avocado”;<br>let grocery = 'avocado';</pre>
+                <br>
+                The <em><b><mark>boolean</em></b></mark> data type can have two values of either true or false.<br>
+                <pre>let fruit = orange;<br>let vegetable = iceCream;<br>fruit = true;<br>vegetable = false;</pre>
+                <br>
+                The <em><b><mark>numbers</em></b></mark> data type can be written as with or without decimals.<br>
+                <pre>let x = 5;<br>let y = 5.00;</pre><br>
+                The <em><b><mark>undefined</em></b></mark> data type is when a variable has been declared, but has not been assigned a value.<br>
+                <pre>let x;<br>let y = "fruits";<br>console.log(x);
+                <br>The output will be <em>undefined</em> since there is no value assigned to x.
+                <br>console.log(y);
+                <br>The output will be <em>fruits</em> since there is a value assigned to y as fruits.</pre>
+                <br>The <em><b><mark>null</em></b></mark> is when value does not exist. In Javascript, <em><b><mark>null</em></b></mark> is an object.<br>
+                <pre>let x = null;<br>console.log(x);<br>The output will be <em><b><mark>null</em></b></mark> since it is assigned as null.</pre><br>
+                <em><b><mark>Array</em></b></mark>mark> used for storing multiple values in single variable using square brackets and separated by using commas.<br>
+                <pre>let fruits = ['grapes', 'oranges', 'apples'];</pre><br>
+                <em><b><mark>Objects</em></b></mark> allows to store collections of data by using curly brackets. An object contains properties which are defined as key value pairs.<br>
+                <pre>let fruits = {<br>    name = "apples";<br>    cost = 1;<br>};</pre><br>
+                    In this example, an object represents fruits. <b>name</b> and <b>cost</b> represent <b><em><mark>keys</b></em></mark>. The
+                    <em><b>apples</em></b> and <em><b>1</em></b> represent <em></em><b>values</b><em>. </li>
+                </p>
+            </div>
+
+        </div>
+
+        <script src="/js/beginner/script_begtenmins.js"></script>
+</body>
+
+</html>
