@@ -2,6 +2,7 @@ const express = require('express');
 const body_parser = require('body-parser');
 const mongodb = require('mongodb');
 const path = require('path');
+const dotenv = require('dotenv').config();
 
 const PORT = 7000;
 const app = express();
@@ -11,24 +12,66 @@ app.use(body_parser.json());
 app.use(body_parser.urlencoded( {extended: true} ));
 app.use(express.static(path.join(__dirname, 'public')));
 
+let db_handler;
+    const DB_URL = process.env.DB_URL;
+    const DB_NAME = process.env.DB_NAME;
+    const CONTACT_COLLECTION = process.env.CONTACT_COLLECTION;
+
 app.listen(PORT, () => {
     console.log(`Server Started on Port: ${PORT}`);
 
-
-const mongo_client = mongodb.MongoClient;
-    let db_handler;
-    const DB_URL = 'mongodb://localhost:27017';
-
-    mongo_client.connect(DB_URL, (err, db_client) => {
+//users contact/feedback using mongodb
+    let mongo_client = mongodb.MongoClient;   
+    mongo_client.connect(DB_URL, (err, db_users) => {
         if (err) {
             console.log("Error: " + err);
         } else {
             console.log("Let's Learn!");
-        db_handler = db_client.db("");
+            db_handler = db_users.db(DB_NAME);
         }
     });
+}) 
 
-})    
+// app.get('/contact', (req, res) => {
+//     db_handler.collection(CONTACT_COLLECTION).find({ }).toArray( (err, result)=> {
+//         if (err) {
+//             console.log(err);
+//         }
+//         else {
+//             console.log(result);
+//             res.render('index', {
+//                 'all_users': result
+//             });
+//         }
+//     });
+// });
+
+app.post('/contact', (req, res) => {
+    const form_data = req.body;
+    // console.log(req.body);
+    const name = form_data['Name'];
+    const emailAddress = form_data['Email'];
+    const level = form_data['Subject']; 
+    const comments = form_data['Message'];
+   
+    const my_obj = {
+        name: name,
+        emailAddress: emailAddress,
+        usersLevels: level,
+        usersComments: comments
+    }
+    console.log(my_obj);
+    db_handler.collection(CONTACT_COLLECTION).insertOne(my_obj, (error, result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log("Thanks for your comments. We will get back to you.");
+            // send response to browser once we are done with db
+            res.redirect('/');
+        }
+    })
+});
+
 
 app.get('/', (req, res) => {
         res.render("index"); 
