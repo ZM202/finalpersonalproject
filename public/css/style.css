@@ -24,6 +24,7 @@ h2{
 	font-size: 20px;
 	margin: 10px 150px 0px 550px;
 } */
+
 /* h4{
     margin: 255px 0px -50px 0px;
 } */
@@ -65,7 +66,10 @@ a {
 nav>div>a:hover {
 	color: #DB1A20;
 } 
-/* nav starts here */
+/* nav ends here */
+
+/*home pg learning buttons */
+
 .learningButtons{
 	font-family: 'Shadows Into Light', cursive;
 	justify-content: center;
@@ -123,7 +127,7 @@ p{
 }
 li{
 	font-family: 'Architects Daughter', cursive;
-	font-weight: bold
+	font-weight: bold;
 	line-height: 30px;
 	margin: 0px 25px 0px 55px;
 }
@@ -135,7 +139,7 @@ li{
 	border-radius: 5px;
 	background-color: #E0E0E0;
 	padding: 10px;
-	margin: -50px 0px 0px 55px;
+	margin: 0px 0px 0px 30px;
 }
 
 input[type=text], select, textarea {
