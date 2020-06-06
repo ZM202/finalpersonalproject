@@ -4,7 +4,7 @@ const mongodb = require('mongodb');
 const path = require('path');
 const dotenv = require('dotenv').config();
 
-const PORT = 7000;
+const PORT = process.env.PORT || 7000;
 const app = express();
 app.set('view engine','ejs');
 
@@ -71,7 +71,6 @@ app.post('/contact', (req, res) => {
         }
     })
 });
-
 
 app.get('/', (req, res) => {
         res.render("index"); 
