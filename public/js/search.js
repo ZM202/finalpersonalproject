@@ -4,6 +4,7 @@ function userSearch(){
         const displayResults = event.target.value.toLowerCase();
         console.log(displayResults);
     };
+    //
 
 
     // console.log(event);
