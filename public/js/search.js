@@ -1,10 +1,12 @@
-function userSearch(){
-    // console.log("testing");
-    if (event.key === "Enter"){
-        const displayResults = event.target.value.toLowerCase();
-        console.log(displayResults);
-    };
-    //
+// function userSearch(){
+//     console.log("testing");
+//     if (event.key === "Enter"){
+//         const displayResults = event.target.value.toLowerCase();
+//         console.log(displayResults);
+//         // window.location.href = '/' + displayResults; 
+//     };
+// };
+
 
 
     // console.log(event);
@@ -17,4 +19,4 @@ function userSearch(){
     // usersInput.addEventListener('keyup', function(e){
     //     const displayResults = e.target.value.toLowerCase();
     // })
-};
+

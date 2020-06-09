@@ -18,6 +18,11 @@ h2{
 	line-height: 50px;
 }
 
+img:hover{
+	opacity: 0.6;
+}
+
+
 /* h3{
 	font-family: 'Permanent Marker', cursive;
 	color: #000000;
@@ -121,7 +126,6 @@ mark{
 p{
 	font-family: 'Architects Daughter', cursive;
 	font-weight: bold;
-	margin: 55px;
 	line-height: 50px;
 	font-size: 20px;
 }
@@ -165,6 +169,16 @@ input[type=submit] {
 /*loginHTML css starts here*/
 .login{
 	margin: 55px 1100px 0px 55px;
+}
+
+.login a {
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 12px;
+}
+
+.login a:hover{
+	color: blue;
 }
 /*loginHTML css ends here*/
 
@@ -224,74 +238,44 @@ button:hover::before{
 	padding: 5em; 
 } */
 
-/* pre{
+pre{
 	display: inline-block;
 	border: 4px solid lightslategray;
-} */
+}
 
 /** 10 mins beginner CSS starts here*/
-#syntax-add{
+.buttonPurple{
 	width: auto;
 	height: 50px;
 	border-radius: 15%;
 	background-color: #bd9997;
 	transition: all 200ms ease-out;
 	font-family: 'Shadows Into Light', cursive;
+	margin: 10px;
+	
+}
+.buttonPar{
+	margin: 0px 5px 0px 35px;
+	font-size: 1.2em;
+	font-weight: bold;
+	border: 0.5px dotted;
+	background-color: beige;
+	opacity: 0.8;
+
 }
 /* .emptySyntax{
 	margin: 3px;
 } */
-#syntaxResults{
-	margin: 3px 0px 5px 0px;
-}
-#variables-add{
-	width: auto;
-	height: 50px;
-	border-radius: 15%;
-	background-color: #bd9997;
-	transition: all 200ms ease-out;
-	font-family: 'Shadows Into Light', cursive;
-}
-#variablesResults{
-	color: red;
-}
-#dataTypes-add{
-	width: auto;
-	height: 50px;
-	border-radius: 15%;
-	background-color: #bd9997;
-	transition: all 200ms ease-out;
-	font-family: 'Shadows Into Light', cursive;
-}
+
+
+
 /** 10 mins beginner CSS ends here*/
 
 /**20 mins beginner CSS starts here*/
-#comparison-add{
-	width: auto;
-	height: 50px;
-	border-radius: 15%;
-	background-color: #bd9997;
-	transition: all 200ms ease-out;
-	font-family: 'Shadows Into Light', cursive;
-}
 
-#logical-add{
-	width: auto;
-	height: 50px;
-	border-radius: 15%;
-	background-color: #bd9997;
-	transition: all 200ms ease-out;
-	font-family: 'Shadows Into Light', cursive;
-}
 
-#conditional-add{
-	width: auto;
-	height: 50px;
-	border-radius: 15%;
-	background-color: #bd9997;
-	transition: all 200ms ease-out;
-	font-family: 'Shadows Into Light', cursive;
-}
+
+
 /*beginnerHTML css ends here*/
 
 /*intermediateHTML css starts here*/

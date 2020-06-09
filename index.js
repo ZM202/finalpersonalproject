@@ -17,6 +17,7 @@ let db_handler;
     const DB_NAME = process.env.DB_NAME;
     const CONTACT_COLLECTION = process.env.CONTACT_COLLECTION;
 
+
 app.listen(PORT, () => {
     console.log(`Server Started on Port: ${PORT}`);
 
@@ -72,6 +73,26 @@ app.post('/contact', (req, res) => {
     })
 });
 
+app.get('/search/:searchTerm', (req, res) =>{
+    const parameters = req.params;
+    console.log(parameters);
+    const searchTerm = parameters.searchTerm;
+    console.log(searchTerm);
+    db_handler.collection(usersSearch).find({tag:searchTerm}).toArray( (err, result)=> {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            if(result.length > 0){
+                res.redirect(result[0].href);
+                console.log('Redirecting to' + result[0].href);
+            }else{
+                res.send('Sorry, the topic is not available. If you want to learn about this topic, please contact us.');
+            }
+        };
+    }) 
+});
+
 app.get('/', (req, res) => {
         res.render("index"); 
 });
@@ -94,11 +115,13 @@ app.get('/login', (req, res) => {
     res.render('navigation/login');
 });
 
+app.get('/signup', (req, res) =>{
+    res.render('naviagtion/createAccount');
+});
+
 app.get('/javascript', (req, res) => {
     res.render('javascript/javascript');
 });
-
-
 
 app.get('/beginnerHTML', (req, res) => {
     res.render('beginner/beginnerHTML');
