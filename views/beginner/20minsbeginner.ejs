@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Learn!</title>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
-</head>
-<body>
     <!--The navagation bar begins here-->
     <h1>Let's Learn!</h1>
 
@@ -21,38 +10,74 @@
 
         <!-- <p class = "emptyComparison"></p> -->
         <div id="comparisonResults" class="buttonPar" style="display: none;">
-            <table></table>
-            <pre>== Is Equal To (The operator compares two values (numbers, strings, or Booleans) to see if they are the same. 
-            == 1 returns true
-            1 == 2 returns false
-            The prefer method to use is triple equals sign. 
-            === strict equal to 
-            '1' === '1' returns true
-            In this example, the operator compares two values to see if they are both the same data type and value. In this case, both of the numbers are in string as such the return is true. If one of the numbers didn’t have the string, it will be returns as false because they are not the same data type or value.
-            1 === '1' returns false
-            !== not equal to (The operator compares two values to see if both the data type and value
-            Are note the same.)
-            1 !== '1' returns true
-            They are not the same data type or value as such the returns is true. 
-            '1' !== '1' returns false
-            They are the same data type and value as such the returns is false. 
-            	Greater than (The operator checks to see if the number on the left is greater than 
-            the number of the right.)
-            1 > 2 returns false
-            2 > 1 returns true
-            <  Less than (The operator checks to see if the number on the left is less than the number of the right.)
-            1 < 2 returns true
-            2 < 1 returns false
-            >= Greater than or equal to (The operator checks if the number on the left is greater than or equal to the number on the right.)
-            2 >= 1 returns true
-            1 >= 2 returns false
-            1 >=1 returns true
-            <= Less than equal to (The operator checks if the number on the left is less than or equal to the number on the right.)
-            2 <= 1 returns false
-            1 <= 2 returns true
-            1 <= 1 returns true
-            </pre>
-
+            <mark>Equal to: == </mark>
+            <br>The operator compares two values (numbers, strings, or Booleans) to see 
+            if they are the same.<br>
+            <pre>1 == 1 returns true</pre>
+            <br><pre>1 == 2 returns false</pre>
+            <br>
+            <mark>Strict Equal to: === </mark>
+            <br>The prefer method to use is triple equals sign.<br>
+            <pre>'1' === '1' returns true</pre><br>
+            The example from above compared the operator two values to see if they are both the same 
+            data type and value. In this case, both of the numbers are in string as such the return 
+            is true. If one of the numbers didn’t have the string, it will be returns as false because they are not 
+            the same data type or value as shown from below example.<br>
+            <pre>1 === '1' returns false</pre>
+            <br><mark>Not Equal to: !== </mark>
+            <br>The operator compares two values to see if both the data type and value
+            are note the same.<br>
+            <pre>1 !== '1' returns true</pre>
+            <br>
+            They are not the same data type or value as such the returns is true.<br>
+            <pre>'1' !== '1' returns false</pre>
+            <br>They are the same data type and value as such the returns is false.<br>
+            <br><mark>Greater than: > </mark>
+            <br> The operator checks to see if the number on the left is greater than 
+            the number of the right.<br>
+            <pre>1 > 2 returns false</pre><br>
+            <pre>2 > 1 returns true</pre>
+            <br><mark>Less than: < </mark> 
+            <br>The operator checks to see if the number on the left is less than the number of the right.
+            <br><pre>1 < 2 returns true</pre><br>
+            <pre>2 < 1 returns false</pre>
+            <br><mark> Greater than or equal to: >= </mark> 
+            <br>The operator checks if the number on the left is greater than or equal to the number 
+            on the right.
+            <br><pre>2 >= 1 returns true</pre><br>
+            <pre>1 >= 2 returns false</pre><br>
+            <pre>1 >= 1 returns true</pre>
+            <br>Less than equal to: <= 
+            <br>The operator checks if the number on the left is less than or equal to the number on the right.<br>
+            <pre>2 <= 1 returns false</pre><br>
+            <pre>1 <= 2 returns true</pre><br>
+            <pre>1 <= 1 returns true</pre>
+            <!-- <table>
+                <tr>
+                    <th scope="col">Operator</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Example</th>
+                    <th scope="col">Example 2</th> 
+                    <th scope="col">Returns</th>
+                    <th scope="col">Reason</th>
+                </tr>
+                <tr>
+                    <th scope="row">==</th>
+                    <th scope="row">Equal To</th>
+                    <th scope="row">1==1</th>
+                    <th scope="row">true</th>
+                </tr>
+                <tr>
+                    <th scope="row">===</th>
+                    <th scope="row">Strict Equal to</th>
+                    <th scope="row">'1'==='1'</th>
+                    <th scope="row">true</th>
+                </tr>
+                <tr>
+                    <th scope="row">===</th>
+                    <td></td>
+                </tr>
+            </table>  -->
     </div>
     <!-- Comparison Operator ends here-->
     
@@ -62,14 +87,62 @@
 
         <!-- <p class = "emptyLogical"></p> -->
         <div id="logicalResults" class="buttonPar" style="display: none;">
-        <pre>Logical OperatorsDescription	 Comparing 	  Returns </pre>
-                    && AND			((5 < 10) && (5 >3))		True	
-        If you have true && true then you will have result as true       
-        If you have false && false then you will have result as false
-        If you have true &&false then you will have result as true
-        If you have false && true then you will have result as false
+            <table>
+                <tr>
+                    <th scope="col"><u>Logical Operators</u></th>
+                    <th scope="col"><u>Description</u></th>
+                    <th scope="col"><u>Comparing</u></th>
+                    <th scope="col"><u>Returns</u></th> 
+                </tr>
+                <tr>
+                    <th scope="row">||</th>
+                    <th scope="row">Or</th>
+                    <th scope="row">((5 < 10) || (5 >3))</th>
+                    <th scope="row">True</th>
+                </tr>
+            </table>	
+            <br>If you have true && true then you will have result as true.       
+            <br>If you have false && false then you will have result as false.
+            <br>If you have true &&false then you will have result as true.
+            <br>If you have false && true then you will have result as false.
+            <br>
+            <table>
+                <tr>
+                    <th scope="col"><u>Logical Operators</u></th>
+                    <th scope="col"><u>Description</u></th>
+                    <th scope="col"><u>Comparing</u></th>
+                    <th scope="col"><u>Returns</u></th> 
+                </tr>
+                <tr>
+                    <th scope="row">&&</th>
+                    <th scope="row">And</th>
+                    <th scope="row">((5 < 10) && (5 >3))</th>
+                    <th scope="row">True</th>
+                </tr>
+                <br>
+            </table>
+            <br>If you have true || true then you will have result as true.
+            <br>If you have false || false then you will have result as false.
+            <br>If you have true || false then you will have result as true.
+            <br>If you have false || true then you will have result as true.
+            <br>
+            <table>
+                <tr>
+                    <th scope="col"><u>Logical Operators</u></th>
+                    <th scope="col"><u>Description</u></th>
+                    <th scope="col"><u>Comparing</u></th>
+                    <th scope="col"><u>Returns</u></th> 
+                </tr>
+                <tr>
+                    <th scope="row">!</th>
+                    <th scope="row">Not</th>
+                    <th scope="row">!(x===y)</th>
+                    <th scope="row">True</th>     
+                </tr><br>
+            </table>
+                <br>If you have !true then you will have result as true.
+                <br>If you have !false then you will have result as false.
         </div>
-
             <div class="Logical Operators">
 
             </div>

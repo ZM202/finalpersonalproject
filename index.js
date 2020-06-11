@@ -21,6 +21,7 @@ let db_handler;
 app.listen(PORT, () => {
     console.log(`Server Started on Port: ${PORT}`);
 
+    
 //users contact/feedback using mongodb
     let mongo_client = mongodb.MongoClient;   
     mongo_client.connect(DB_URL, (err, db_users) => {
@@ -76,9 +77,9 @@ app.post('/contact', (req, res) => {
 app.get('/search/:searchTerm', (req, res) =>{
     const parameters = req.params;
     console.log(parameters);
-    const searchTerm = parameters.searchTerm;
+    const searchTerm = parameters["searchTerm"];
     console.log(searchTerm);
-    db_handler.collection(usersSearch).find({tag:searchTerm}).toArray( (err, result)=> {
+    db_handler.collection("usersSearch").find({tag:searchTerm}).toArray( (err, result)=> {
         if (err) {
             console.log(err);
         }
