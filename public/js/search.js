@@ -6,7 +6,7 @@ function userSearch(){
         window.location.href = '/search/' + displayResults; 
     };
 };
-
+//
 
 
     // console.log(event);
