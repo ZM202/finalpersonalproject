@@ -1,11 +1,12 @@
 body{
 	background-color:#A0A0A0;
-	background-image: url("../images/background.jpg");
-	background-size: 50px 600px 50px 500px;
+	/* background-image: url("../images/background.jpg"); */
+	/* background-image: url("../images/painted_wall.jpg"); */
+	background-image: url("../images/antique.jpg");
+	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 0 0em;
 }
-
 
 h1{
 	text-align: center;
@@ -15,13 +16,15 @@ h1{
 }
 
 h2{
-	line-height: 50px;
+	/* line-height: 45px; */
+	font-size: 20px;
+	font-family: 'Hind Siliguri', sans-serif;
+	margin: 55px 0px 0px 55px;
 }
 
 img:hover{
 	opacity: 0.6;
 }
-
 
 /* h3{
 	font-family: 'Permanent Marker', cursive;
@@ -36,7 +39,7 @@ img:hover{
 
 h6{
 	font-size: 25px;
-	margin: -200px 0px 0px 555px;
+	margin: -190px 0px 0px 555px;
 	font-family: 'Pacifico', cursive;
 }
 /* nav starts here */
@@ -44,6 +47,7 @@ h6{
 nav {
 	display: flex;
 	justify-content: space-evenly;
+	margin: 35px;
 	/* color: white; */
 	/* background-color:#333a35; */	
 }
@@ -56,7 +60,9 @@ nav > div {
 /* search div*/
 nav > div:last-child{
 	display: flex;
-	align-items: center;	
+	align-items: center;
+	margin: -20px;
+	
 }
 
 a {
@@ -71,52 +77,47 @@ a {
 nav>div>a:hover {
 	color: #DB1A20;
 } 
+
 /* nav ends here */
 
 /*home pg learning buttons */
 
-.learningButtons{
+#javascript{
+	align-items: center;
+    margin: 50px 150px 0px 480px;      
+	border-radius: 12px;
 	font-family: 'Shadows Into Light', cursive;
 	justify-content: center;
-	background-color: #CC99ff;
-    color: 	#0000FF;
-	font-size: 1em;   
-	height: 50px;
+	font-size: 2em;   
+	height: auto;
 	outline: none;
 	border-radius: 12px;
 }
 
-/* .begandint{
+/* diff learning levels' buttons starts here */
+.begandint{
 	display: flex;
 	justify-content: space-between;
-	margin: 20px 50px 0px 25px;
-	border-radius: 50%;
-} */
-
-/* javarscript button starts here */
-#javascript{
-	align-items: center;
-    margin: 30px 150px 0px 550px;      
+	margin: 50px 145px 0px 145px;
 	border-radius: 12px;
-}
-/* javarscript button ends here */
-
-/* diff learning levels' buttons starts here */
-/* #beginner{
-	border-radius: 50%;
-	margin-left: 25%;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 1.5em;   
+	height: auto;
+	outline: none;	
 }
 
-#intermediate{
-	margin-right: 25%;    
-	border-radius: 50%; 
-}
-
-#advanced{
+.advanced{
 	align-items: center;
+	margin: 20px 90px 0px 280px; 
+	border-radius: 12px;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 1.5em;   
+	height: auto;
+	outline: none;
+	/* align-items: center;
     margin: 50px 50px 0px 550px;      
-	border-radius: 8px;
-} */
+	border-radius: 8px; */
+} 
 mark{
 	color: #16161c;
 	background-color: #dfdfe6;
@@ -128,6 +129,7 @@ p{
 	font-weight: bold;
 	line-height: 50px;
 	font-size: 20px;
+	margin: 0px 35px;
 }
 li{
 	font-family: 'Architects Daughter', cursive;
@@ -149,7 +151,9 @@ table{
 	border-radius: 5px;
 	background-color: #E0E0E0;
 	padding: 10px;
-	margin: 0px 0px 0px 30px;
+	margin: 0px 50px 0px 30px;
+	width: 480px;
+	height: 420px;
 }
 
 input[type=text], select, textarea {
@@ -170,6 +174,8 @@ input[type=submit] {
 	border-radius: 4px;
 	cursor: pointer;
 }
+
+
 /*contactHTML css ends here*/
 
 /*loginHTML css starts here*/
@@ -186,6 +192,12 @@ input[type=submit] {
 .login a:hover{
 	color: blue;
 }
+
+/*signup css starts here*/
+.signup{
+	width: 200px;
+	margin: 0px 25px 0px 55px;
+}
 /*loginHTML css ends here*/
 
 /*minutes by minutes css starts here*/
@@ -194,8 +206,10 @@ input[type=submit] {
 	justify-content: center;
 	flex-flow: row wrap;
 	max-width: 300px;
-	margin: 1rem 18rem 3rem;
-	transform: translateY(3px);
+	margin: 3rem 18rem 3rem;
+	/* transform: translateY(3px); */
+	font-size: 24px;
+	border-radius: 12px;
 }
 
 button {
@@ -235,6 +249,7 @@ button:hover::before{
 
 /*minutes by minutes css ends here*/
 
+
 /*beginnerHTML css starts here*/
 .beginnerImage{
 	margin: -260px 55px 0px 550px;	
@@ -249,7 +264,7 @@ pre{
 	border: 4px solid lightslategray;
 }
 
-/** 10 mins beginner CSS starts here*/
+/** lesson topics CSS starts here*/
 .buttonPurple{
 	width: auto;
 	height: 50px;
@@ -257,32 +272,19 @@ pre{
 	background-color: #bd9997;
 	transition: all 200ms ease-out;
 	font-family: 'Shadows Into Light', cursive;
-	margin: 10px;
+	margin: 50px 0px 0px 55px;
 	
 }
 .buttonPar{
-	margin: 0px 5px 0px 35px;
+	margin: 20px 5px 0px 45px;
 	font-size: 1.2em;
 	font-weight: bold;
 	border: 0.5px dotted;
-	background-color: beige;
+	background-color: #ffffe5;
 	opacity: 0.8;
-
 }
-/* .emptySyntax{
-	margin: 3px;
-} */
 
-
-
-/** 10 mins beginner CSS ends here*/
-
-/**20 mins beginner CSS starts here*/
-
-
-
-
-/*beginnerHTML css ends here*/
+/** lesson topics CSS starts here*/
 
 /*intermediateHTML css starts here*/
 .imgIntermediate img{

@@ -93,6 +93,52 @@ app.get('/search/:searchTerm', (req, res) =>{
         };
     }) 
 });
+//login starts here//
+app.post('/add', (req, res) => {
+    const form_data = req.body;
+    console.log(form_data);
+    const username = form_data['username'];
+    const password = form_data['password'];
+
+    const my_login = {
+        name: name,
+        emailAddress: emailAddress,
+        usersLevels: level,
+        usersComments: comments
+    }
+
+    if(username.length < 5){
+        res.send('username cannot be < 5');
+    }
+    if(password.length < 5 || description.length > 12){
+        res.send('Password must be between 5-12 characters');
+    }   
+});
+//login ends here//
+
+//creating a sign up starts here
+app.post('/signup', (req, res) => {
+    const form_data = req.body;
+    console.log(form_data);
+    const signupnewuser = form_data['username'];
+    const emailforsignup = form_data['Email Address'];
+    const pwdforsignup = form_data['Password'];
+    const pwdconfirmsignup = form_data['Password'];
+
+    const new_signup = {
+        newusername: signupnewuser,
+        newuseremailAddress: emailforsignup,
+        newuserpwd: pwdforsignup,
+        newuserconfirmpwd: pwdconfirmsignup
+    }
+
+    if(signupnewuser.length < 5){
+        res.send('signupnewuser cannot be < 5');
+    }
+    if(pwdforsignup.length < 5 || description.length > 12){
+        res.send('Description must be between 5-12 characters');
+    }   
+});
 
 app.get('/', (req, res) => {
         res.render("index"); 
@@ -105,20 +151,36 @@ app.get('/about', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('navigation/contact');
 });
-
+//user submit comments start here//
 app.post('/submitcontact', (req, res) => {
     const body = req.body;
     console.log(body);
     res.redirect('/');
 });
+//user submit comments end here//
 
+//user login starts here//
 app.get('/login', (req, res) => {
     res.render('navigation/login');
 });
+//user login ends here//
 
+//user signup starts here//
 app.get('/signup', (req, res) =>{
-    res.render('naviagtion/createAccount');
+    res.render('navigation/signup');
 });
+//user signup ends here//
+
+//forgot pwd starts here//
+app.get('/forgotpwd', (req, res) =>{
+    res.render('navigation/forgotpwd');
+})
+//forgot pwd ends here//
+
+//redirecting to login pg if user already got an acct
+app.get('/signup', (req, res) =>{
+    res.render('navigation/login');
+})
 
 app.get('/javascript', (req, res) => {
     res.render('javascript/javascript');

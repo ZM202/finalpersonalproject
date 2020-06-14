@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Learn!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
-</head>
-<body>
+<link rel="stylesheet" href="/css/style.css" type="text/css">
     <!--The navagation bar begins here-->
     <h1>Let's Learn!</h1>
 
@@ -19,19 +8,20 @@
     
     <!--login starts here-->
     <div class="login">
-        <form id = "form" action="/" method="POST" target="_blank">
-        <input type="text" name="username" placeholder= "Username">
+        <form id = "login_form" action="/add" method="POST" target="_blank">
+        <input type="text" name="username" id="username" placeholder= "Username">
         <br>
-        <input type="text" name="password" placeholder= "Password">
+        <input type="text" name="password" id="password" value="" placeholder= "Password">
         <br>
+        <input type="checkbox" onclick="Toggle()"><b>Show Password</b>
         <button id="submit" class='btn btn-primary btn-large'>Submit</button>
-        <h5>Don't have an account?</h5><a href="#">Sign Up</a></br>
+        <h5>Don't have an account?</h5><a href="signup">Sign Up</a></br>
         <a href="#">Forgot Password?</a>
-
     </form>
+    <div id='error'>
     </div>
    <!-- login ends here-->
 
-    <script src = "/js/script.js"></script>   
+    <script src = "/js/login.js"></script>   
 </body>
 </html>
