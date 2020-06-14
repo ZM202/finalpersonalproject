@@ -86,7 +86,7 @@ nav>div>a:hover {
 	align-items: center;
     margin: 50px 150px 0px 480px;      
 	border-radius: 12px;
-	font-family: 'Shadows Into Light', cursive;
+	font-family: 'Balsamiq Sans', cursive;
 	justify-content: center;
 	font-size: 2em;   
 	height: auto;
@@ -100,7 +100,7 @@ nav>div>a:hover {
 	justify-content: space-between;
 	margin: 50px 145px 0px 145px;
 	border-radius: 12px;
-	font-family: 'Shadows Into Light', cursive;
+	font-family: 'Balsamiq Sans', cursive;
 	font-size: 1.5em;   
 	height: auto;
 	outline: none;	
@@ -110,7 +110,7 @@ nav>div>a:hover {
 	align-items: center;
 	margin: 20px 90px 0px 280px; 
 	border-radius: 12px;
-	font-family: 'Shadows Into Light', cursive;
+	font-family: 'Balsamiq Sans', cursive;
 	font-size: 1.5em;   
 	height: auto;
 	outline: none;
@@ -125,17 +125,18 @@ mark{
 /*javascriptHTML css starts here*/
 
 p{
-	font-family: 'Architects Daughter', cursive;
+	font-family: 'Balsamiq Sans', cursive;
 	font-weight: bold;
 	line-height: 50px;
 	font-size: 20px;
 	margin: 0px 35px;
 }
 li{
-	font-family: 'Architects Daughter', cursive;
+	font-family: 'Balsamiq Sans', cursive;
 	font-weight: bold;
 	line-height: 30px;
-	margin: 0px 25px 0px 55px;
+	font-size: 20px;
+	margin: 10px 25px 0px 55px;
 }
 
 table{
@@ -213,15 +214,15 @@ input[type=submit] {
 }
 
 button {
-	font-family: 'Shadows Into Light', cursive;
+	font-family: 'Balsamiq Sans', cursive;
 	position: relative;
 	margin: 1rem 18rem;
 	padding: 1rem 2rem;
 	font-size: 1rem;
-	background-color: transparent;
+	/* background-color: transparent; */
 	cursor: pointer;
 }
-button::before{
+/* button::before{
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -231,12 +232,13 @@ button::before{
 	z-index: -1;
 	background-color: #bd9997;
 	transition: all 200ms ease-out;
-}
+} */
 
-button:hover::before{
+/* button:hover::before{
 	top: 0;
 	left: 0;
-}
+	background-color:  #bd9997;
+} */
 	/* display: flex;
 	justify-content: center;
 	background-color: #c5e0cd;
@@ -261,7 +263,8 @@ button:hover::before{
 
 pre{
 	display: inline-block;
-	border: 4px solid lightslategray;
+	border: 4px solid gray;
+	font-size: 12px;
 }
 
 /** lesson topics CSS starts here*/
@@ -269,19 +272,21 @@ pre{
 	width: auto;
 	height: 50px;
 	border-radius: 15%;
-	background-color: #bd9997;
+	background-color:#b2ad7f;
 	transition: all 200ms ease-out;
-	font-family: 'Shadows Into Light', cursive;
-	margin: 50px 0px 0px 55px;
+	font-family: 'Balsamiq Sans', cursive;
+	margin: 50px 25px 0px 95px;
+	font-size: 20px;
 	
 }
 .buttonPar{
-	margin: 20px 5px 0px 45px;
+	margin: 20px 65px 0px 65px;
 	font-size: 1.2em;
 	font-weight: bold;
 	border: 0.5px dotted;
 	background-color: #ffffe5;
 	opacity: 0.8;
+	padding: 15px;
 }
 
 /** lesson topics CSS starts here*/

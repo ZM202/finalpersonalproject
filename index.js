@@ -2,6 +2,7 @@ const express = require('express');
 const body_parser = require('body-parser');
 const mongodb = require('mongodb');
 const path = require('path');
+const { resolveSoa } = require('dns');
 const dotenv = require('dotenv').config();
 
 const PORT = process.env.PORT || 7000;
@@ -21,7 +22,6 @@ let db_handler;
 app.listen(PORT, () => {
     console.log(`Server Started on Port: ${PORT}`);
 
-    
 //users contact/feedback using mongodb
     let mongo_client = mongodb.MongoClient;   
     mongo_client.connect(DB_URL, (err, db_users) => {
@@ -48,6 +48,7 @@ app.listen(PORT, () => {
 //     });
 // });
 
+//users contact form starts here//
 app.post('/contact', (req, res) => {
     const form_data = req.body;
     // console.log(req.body);
@@ -74,6 +75,21 @@ app.post('/contact', (req, res) => {
     })
 });
 
+app.get('/contact', (req, res) => {
+    res.render('navigation/contact');
+});
+
+//users contact form ends here//
+
+//user submit comments start here//
+app.post('/submitcontact', (req, res) => {
+    const body = req.body;
+    console.log(body);
+    res.redirect('/');
+});
+//user submit comments end here//
+
+//user search button starts here//
 app.get('/search/:searchTerm', (req, res) =>{
     const parameters = req.params;
     console.log(parameters);
@@ -93,18 +109,22 @@ app.get('/search/:searchTerm', (req, res) =>{
         };
     }) 
 });
-//login starts here//
-app.post('/add', (req, res) => {
+//user search button starts here//
+
+//user login starts here//
+app.get('/login', (req, res) => {
+    res.render('navigation/login');
+});
+
+app.post('/login', (req, res) => {
     const form_data = req.body;
     console.log(form_data);
     const username = form_data['username'];
     const password = form_data['password'];
 
     const my_login = {
-        name: name,
-        emailAddress: emailAddress,
-        usersLevels: level,
-        usersComments: comments
+        name: username,
+        password: password     
     }
 
     if(username.length < 5){
@@ -116,14 +136,18 @@ app.post('/add', (req, res) => {
 });
 //login ends here//
 
-//creating a sign up starts here
+//user signup starts here//
+app.get('/signup', (req, res) =>{
+    res.render('navigation/signup');
+});
+
 app.post('/signup', (req, res) => {
     const form_data = req.body;
     console.log(form_data);
     const signupnewuser = form_data['username'];
     const emailforsignup = form_data['Email Address'];
     const pwdforsignup = form_data['Password'];
-    const pwdconfirmsignup = form_data['Password'];
+    const pwdconfirmsignup = form_data['Confirm Password'];
 
     const new_signup = {
         newusername: signupnewuser,
@@ -135,40 +159,13 @@ app.post('/signup', (req, res) => {
     if(signupnewuser.length < 5){
         res.send('signupnewuser cannot be < 5');
     }
-    if(pwdforsignup.length < 5 || description.length > 12){
-        res.send('Description must be between 5-12 characters');
+    if(pwdforsignup.length < 5 || pwdforsignup.length > 12){
+        res.send('Password must be between 5-12 characters');
     }   
-});
 
-app.get('/', (req, res) => {
-        res.render("index"); 
-});
-
-app.get('/about', (req, res) => {
-    res.render('navigation/about');
-});
-
-app.get('/contact', (req, res) => {
-    res.render('navigation/contact');
-});
-//user submit comments start here//
-app.post('/submitcontact', (req, res) => {
-    const body = req.body;
-    console.log(body);
     res.redirect('/');
 });
-//user submit comments end here//
 
-//user login starts here//
-app.get('/login', (req, res) => {
-    res.render('navigation/login');
-});
-//user login ends here//
-
-//user signup starts here//
-app.get('/signup', (req, res) =>{
-    res.render('navigation/signup');
-});
 //user signup ends here//
 
 //forgot pwd starts here//
@@ -177,10 +174,20 @@ app.get('/forgotpwd', (req, res) =>{
 })
 //forgot pwd ends here//
 
-//redirecting to login pg if user already got an acct
+//redirecting to login pg if user already got an acct starts here
 app.get('/signup', (req, res) =>{
     res.render('navigation/login');
 })
+
+//redirecting to login pg if user already got an acct ends here
+
+app.get('/', (req, res) => {
+        res.render("index"); 
+});
+
+app.get('/about', (req, res) => {
+    res.render('navigation/about');
+});
 
 app.get('/javascript', (req, res) => {
     res.render('javascript/javascript');
