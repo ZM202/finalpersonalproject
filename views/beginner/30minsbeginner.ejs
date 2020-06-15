@@ -5,6 +5,33 @@
     <%- include('../../partials/navbar.ejs') %>
     <!--The navagation bar ends here--> 
 
+    <div class = "functions-add">
+        <input type="button" class="buttonPurple" id="functions-add" value="Functions">
+
+        <div id="functionsResults" class="buttonPar" style="display: none;">
+
+            "A JavaScript function is a block of code designed to perform a particular task."-W3 School<br>
+            <br>Function is useful when we need to have repeat action or calculation.<br>
+            <br>When writing a function, it needs to start with a variable that will be storing a 
+            new message then followed by a function.<br>
+            <pre>function groceryList(){
+                let fruitName = "Apple";
+                };</pre>
+            <br>Explaination of the code: <br>
+            The word "function" from above example is considered a <em>keyword.</em><br>
+            "groceryList" is a name of the <em>Function.</em>
+    </div>
+
+    <div class = "callingfunctions-add">
+        <input type="button" class="buttonPurple" id="callingfunctions-add" value="Calling Functions">
+
+        <div id="callingfunctionsResults" class="buttonPar" style="display: none;">
+        We will be using the same example as above to call our function. We already declared a function (Please refers to the above "Function" lesson to see the example and explanation). Calling a function meant the statement we input in curly braces can be called with just one line of code.<br>
+        <pre>groceryList();</pre>
+        <br>By calling a function, it executes the code in the block.
+        <pre></pre>
+
+            
 
     <script src = "/js/beginner/script_begthirtymins.js"></script> 
     

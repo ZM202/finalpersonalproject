@@ -2,6 +2,10 @@ const express = require('express');
 const body_parser = require('body-parser');
 const mongodb = require('mongodb');
 const path = require('path');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const flash =require('connect-flash');
+//calling dns.resolveSoa() method for hostname
 const { resolveSoa } = require('dns');
 const dotenv = require('dotenv').config();
 
@@ -12,6 +16,11 @@ app.set('view engine','ejs');
 app.use(body_parser.json());
 app.use(body_parser.urlencoded( {extended: true} ));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Initialize Passport and restore authentication state, if any, from the session.
+
+app.use(passport.initialize()); 
+app.use(passport.session()); 
 
 let db_handler;
     const DB_URL = process.env.DB_URL;
@@ -34,6 +43,15 @@ app.listen(PORT, () => {
     });
 }) 
 
+// passport.use(new Strategy(
+//     (username, password, done) =>{
+//         app.locals.users.findONe({ username }, (err, user) =>{
+//             if (err) {
+//                 return done(err);
+//             }
+//         })
+//     }
+// )
 // app.get('/contact', (req, res) => {
 //     db_handler.collection(CONTACT_COLLECTION).find({ }).toArray( (err, result)=> {
 //         if (err) {
@@ -70,7 +88,7 @@ app.post('/contact', (req, res) => {
         } else {
             console.log("Thanks for your comments. We will get back to you.");
             // send response to browser once we are done with db
-            res.redirect('/');
+            res.render('navigation/confirmation');
         }
     })
 });
@@ -82,11 +100,12 @@ app.get('/contact', (req, res) => {
 //users contact form ends here//
 
 //user submit comments start here//
-app.post('/submitcontact', (req, res) => {
-    const body = req.body;
-    console.log(body);
-    res.redirect('/');
-});
+// app.post('/submitcontact', (req, res) => {
+//     const body = req.body;
+//     console.log(body);
+//     res.redirect('/');
+// });
+
 //user submit comments end here//
 
 //user search button starts here//
@@ -104,7 +123,8 @@ app.get('/search/:searchTerm', (req, res) =>{
                 res.redirect(result[0].href);
                 console.log('Redirecting to' + result[0].href);
             }else{
-                res.send('Sorry, the topic is not available. If you want to learn about this topic, please contact us.');
+                // res.send('Sorry, the topic is not available. If you want to learn about this topic, please contact us.');
+                res.render('navigation/error');
             }
         };
     }) 
@@ -174,12 +194,7 @@ app.get('/forgotpwd', (req, res) =>{
 })
 //forgot pwd ends here//
 
-//redirecting to login pg if user already got an acct starts here
-app.get('/signup', (req, res) =>{
-    res.render('navigation/login');
-})
-
-//redirecting to login pg if user already got an acct ends here
+//starting home page
 
 app.get('/', (req, res) => {
         res.render("index"); 
