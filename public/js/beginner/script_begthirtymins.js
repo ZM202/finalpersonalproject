@@ -14,7 +14,6 @@ function myFunctions(){
     }
 }
 
-
 let callingfunctionsbutton = document.getElementById("callingfunctions-add");
 callingfunctionsbutton.addEventListener('click', function(){
    mycallingFunctions();
