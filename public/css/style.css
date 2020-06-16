@@ -1,7 +1,5 @@
 body{
 	background-color:#A0A0A0;
-	/* background-image: url("../images/background.jpg"); */
-	/* background-image: url("../images/painted_wall.jpg"); */
 	background-image: url("../images/antique.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -16,7 +14,6 @@ h1{
 }
 
 h2{
-	/* line-height: 45px; */
 	font-size: 20px;
 	font-family: 'Hind Siliguri', sans-serif;
 	margin: 55px 0px 0px 55px;
@@ -26,30 +23,18 @@ img:hover{
 	opacity: 0.6;
 }
 
-/* h3{
-	font-family: 'Permanent Marker', cursive;
-	color: #000000;
-	font-size: 20px;
-	margin: 10px 150px 0px 550px;
-} */
-
-/* h4{
-    margin: 255px 0px -50px 0px;
-} */
-
 h6{
 	font-size: 25px;
 	margin: -190px 0px 0px 555px;
 	font-family: 'Pacifico', cursive;
 }
+
 /* nav starts here */
 
 nav {
 	display: flex;
 	justify-content: space-evenly;
-	margin: 35px;
-	/* color: white; */
-	/* background-color:#333a35; */	
+	margin: 35px;	
 }
 
 nav > div {
@@ -114,14 +99,12 @@ nav>div>a:hover {
 	font-size: 1.5em;   
 	height: auto;
 	outline: none;
-	/* align-items: center;
-    margin: 50px 50px 0px 550px;      
-	border-radius: 8px; */
 } 
 mark{
 	color: #16161c;
 	background-color: #dfdfe6;
 }
+
 /*javascriptHTML css starts here*/
 
 p{
@@ -180,8 +163,6 @@ input[type=submit] {
 	height: 30px;
 	width: 30px;
 }
-
-
 /*contactHTML css ends here*/
 
 /*loginHTML css starts here*/
@@ -213,7 +194,6 @@ input[type=submit] {
 	flex-flow: row wrap;
 	max-width: 300px;
 	margin: 3rem 18rem 3rem;
-	/* transform: translateY(3px); */
 	font-size: 24px;
 	border-radius: 12px;
 }
@@ -224,47 +204,15 @@ button {
 	margin: 1rem 18rem;
 	padding: 1rem 2rem;
 	font-size: 1rem;
-	/* background-color: transparent; */
 	cursor: pointer;
 }
-/* button::before{
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: -.6rem;
-	top: -.5rem;
-	z-index: -1;
-	background-color: #bd9997;
-	transition: all 200ms ease-out;
-} */
-
-/* button:hover::before{
-	top: 0;
-	left: 0;
-	background-color:  #bd9997;
-} */
-	/* display: flex;
-	justify-content: center;
-	background-color: #c5e0cd;
-	width: 150px;
-	height: 50px;
-	border-radius: 12px;
-	align-items: flex-start;
-	margin: 55px 50px 0px 250px;   */
-
 
 /*minutes by minutes css ends here*/
-
 
 /*beginnerHTML css starts here*/
 .beginnerImage{
 	margin: -260px 55px 0px 550px;	
 }
-/* .main-content{
-	background-color: rgba(224, 224, 224, .7);
-	padding: 5em; 
-} */
 
 pre{
 	display: inline-block;

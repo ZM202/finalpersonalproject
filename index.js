@@ -17,7 +17,7 @@ app.use(body_parser.json());
 app.use(body_parser.urlencoded( {extended: true} ));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Initialize Passport and restore authentication state, if any, from the session.
+// Initialize Passport and restore authentication state.
 
 app.use(passport.initialize()); 
 app.use(passport.session()); 
@@ -43,6 +43,7 @@ app.listen(PORT, () => {
     });
 }) 
 
+//Will be working on later on for login.
 // passport.use(new Strategy(
 //     (username, password, done) =>{
 //         app.locals.users.findONe({ username }, (err, user) =>{
@@ -52,19 +53,6 @@ app.listen(PORT, () => {
 //         })
 //     }
 // )
-// app.get('/contact', (req, res) => {
-//     db_handler.collection(CONTACT_COLLECTION).find({ }).toArray( (err, result)=> {
-//         if (err) {
-//             console.log(err);
-//         }
-//         else {
-//             console.log(result);
-//             res.render('index', {
-//                 'all_users': result
-//             });
-//         }
-//     });
-// });
 
 //users contact form starts here//
 app.post('/contact', (req, res) => {
@@ -98,15 +86,6 @@ app.get('/contact', (req, res) => {
 });
 
 //users contact form ends here//
-
-//user submit comments start here//
-// app.post('/submitcontact', (req, res) => {
-//     const body = req.body;
-//     console.log(body);
-//     res.redirect('/');
-// });
-
-//user submit comments end here//
 
 //user search button starts here//
 app.get('/search/:searchTerm', (req, res) =>{
@@ -154,7 +133,7 @@ app.post('/login', (req, res) => {
         res.send('Password must be between 5-12 characters');
     }   
 });
-//login ends here//
+//user login ends here//
 
 //user signup starts here//
 app.get('/signup', (req, res) =>{
@@ -194,20 +173,24 @@ app.get('/forgotpwd', (req, res) =>{
 })
 //forgot pwd ends here//
 
-//starting home page
+// home page
 
 app.get('/', (req, res) => {
         res.render("index"); 
 });
 
+//about page 
+
 app.get('/about', (req, res) => {
     res.render('navigation/about');
 });
 
+//learning what is javascript page
 app.get('/javascript', (req, res) => {
     res.render('javascript/javascript');
 });
 
+//the materials for lessons starts here..
 app.get('/beginnerHTML', (req, res) => {
     res.render('beginner/beginnerHTML');
 });
@@ -255,7 +238,7 @@ app.get('/20minsadvanced', (req, res) =>{
 app.get('/30minsadvanced', (req, res) =>{
     res.render('advanced/30minsadvanced');
 });
-
+//the materials for lessons ends here..
 
 
 
