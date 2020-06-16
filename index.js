@@ -2,6 +2,11 @@ const express = require('express');
 const body_parser = require('body-parser');
 const mongodb = require('mongodb');
 const path = require('path');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const flash =require('connect-flash');
+//calling dns.resolveSoa() method for hostname
+const { resolveSoa } = require('dns');
 const dotenv = require('dotenv').config();
 
 const PORT = process.env.PORT || 7000;
@@ -12,6 +17,11 @@ app.use(body_parser.json());
 app.use(body_parser.urlencoded( {extended: true} ));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Initialize Passport and restore authentication state, if any, from the session.
+
+app.use(passport.initialize()); 
+app.use(passport.session()); 
+
 let db_handler;
     const DB_URL = process.env.DB_URL;
     const DB_NAME = process.env.DB_NAME;
@@ -21,7 +31,6 @@ let db_handler;
 app.listen(PORT, () => {
     console.log(`Server Started on Port: ${PORT}`);
 
-    
 //users contact/feedback using mongodb
     let mongo_client = mongodb.MongoClient;   
     mongo_client.connect(DB_URL, (err, db_users) => {
@@ -34,6 +43,15 @@ app.listen(PORT, () => {
     });
 }) 
 
+// passport.use(new Strategy(
+//     (username, password, done) =>{
+//         app.locals.users.findONe({ username }, (err, user) =>{
+//             if (err) {
+//                 return done(err);
+//             }
+//         })
+//     }
+// )
 // app.get('/contact', (req, res) => {
 //     db_handler.collection(CONTACT_COLLECTION).find({ }).toArray( (err, result)=> {
 //         if (err) {
@@ -48,6 +66,7 @@ app.listen(PORT, () => {
 //     });
 // });
 
+//users contact form starts here//
 app.post('/contact', (req, res) => {
     const form_data = req.body;
     // console.log(req.body);
@@ -69,11 +88,27 @@ app.post('/contact', (req, res) => {
         } else {
             console.log("Thanks for your comments. We will get back to you.");
             // send response to browser once we are done with db
-            res.redirect('/');
+            res.render('navigation/confirmation');
         }
     })
 });
 
+app.get('/contact', (req, res) => {
+    res.render('navigation/contact');
+});
+
+//users contact form ends here//
+
+//user submit comments start here//
+// app.post('/submitcontact', (req, res) => {
+//     const body = req.body;
+//     console.log(body);
+//     res.redirect('/');
+// });
+
+//user submit comments end here//
+
+//user search button starts here//
 app.get('/search/:searchTerm', (req, res) =>{
     const parameters = req.params;
     console.log(parameters);
@@ -88,11 +123,78 @@ app.get('/search/:searchTerm', (req, res) =>{
                 res.redirect(result[0].href);
                 console.log('Redirecting to' + result[0].href);
             }else{
-                res.send('Sorry, the topic is not available. If you want to learn about this topic, please contact us.');
+                // res.send('Sorry, the topic is not available. If you want to learn about this topic, please contact us.');
+                res.render('navigation/error');
             }
         };
     }) 
 });
+//user search button starts here//
+
+//user login starts here//
+app.get('/login', (req, res) => {
+    res.render('navigation/login');
+});
+
+app.post('/login', (req, res) => {
+    const form_data = req.body;
+    console.log(form_data);
+    const username = form_data['username'];
+    const password = form_data['password'];
+
+    const my_login = {
+        name: username,
+        password: password     
+    }
+
+    if(username.length < 5){
+        res.send('username cannot be < 5');
+    }
+    if(password.length < 5 || description.length > 12){
+        res.send('Password must be between 5-12 characters');
+    }   
+});
+//login ends here//
+
+//user signup starts here//
+app.get('/signup', (req, res) =>{
+    res.render('navigation/signup');
+});
+
+app.post('/signup', (req, res) => {
+    const form_data = req.body;
+    console.log(form_data);
+    const signupnewuser = form_data['username'];
+    const emailforsignup = form_data['Email Address'];
+    const pwdforsignup = form_data['Password'];
+    const pwdconfirmsignup = form_data['Confirm Password'];
+
+    const new_signup = {
+        newusername: signupnewuser,
+        newuseremailAddress: emailforsignup,
+        newuserpwd: pwdforsignup,
+        newuserconfirmpwd: pwdconfirmsignup
+    }
+
+    if(signupnewuser.length < 5){
+        res.send('signupnewuser cannot be < 5');
+    }
+    if(pwdforsignup.length < 5 || pwdforsignup.length > 12){
+        res.send('Password must be between 5-12 characters');
+    }   
+
+    res.redirect('/');
+});
+
+//user signup ends here//
+
+//forgot pwd starts here//
+app.get('/forgotpwd', (req, res) =>{
+    res.render('navigation/forgotpwd');
+})
+//forgot pwd ends here//
+
+//starting home page
 
 app.get('/', (req, res) => {
         res.render("index"); 
@@ -100,24 +202,6 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('navigation/about');
-});
-
-app.get('/contact', (req, res) => {
-    res.render('navigation/contact');
-});
-
-app.post('/submitcontact', (req, res) => {
-    const body = req.body;
-    console.log(body);
-    res.redirect('/');
-});
-
-app.get('/login', (req, res) => {
-    res.render('navigation/login');
-});
-
-app.get('/signup', (req, res) =>{
-    res.render('naviagtion/createAccount');
 });
 
 app.get('/javascript', (req, res) => {

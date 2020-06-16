@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Learn!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
-<body>
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+    
     <!--The navagation bar begins here-->
     <h1>Let's Learn!</h1>
 
@@ -18,7 +8,6 @@
     <!--The navagation bar ends here-->
        
     <!--Description for contact starts here-->
-
     <p>Got questions or comments?
     <br>
     Fill out the form below to reach out to me regarding any questions or comments.
@@ -44,14 +33,15 @@
             <textarea id="message" name="Message" placeholder="Please input your comments here."
             required></textarea> 
         <br>
-        <button type ="submit" class='btn btn-primary btn-large'>Submit</button>
+        <button type ="contactSubmit" class='btn btn-primary btn-large'>Submit</button>
         <div id = "error"></div>
+        <div id = "msgSuccess"></div>
+        <div id = "msgthankyou"></div>
 
     </form>
     </div>
 
     <!--Description for contact ends here-->
-
   
     <script src = "/js/contact.js"></script>   
 </body>
