@@ -1,11 +1,9 @@
-//beginner 30 mins lesson starts here...
-
 let functionsbutton = document.getElementById("functions-add");
 functionsbutton.addEventListener('click', function(){
-   myFunctions();
+   myfunctions();
 });
 
-function myFunctions(){
+function myfunctions(){
     let x = document.getElementById("functionsResults");
     if(x.style.display === "none"){
         x.style.display = "block";
@@ -13,7 +11,6 @@ function myFunctions(){
         x.style.display = "none";
     }
 }
-
 
 let callingfunctionsbutton = document.getElementById("callingfunctions-add");
 callingfunctionsbutton.addEventListener('click', function(){
